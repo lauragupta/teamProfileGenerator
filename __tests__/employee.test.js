@@ -4,10 +4,10 @@ describe("Employee class", () =>{
     describe("Initialization", () => {
         it("should create an object with a name, title, email, and id if provided valid arguments", () =>{
             //Act
-            const emplooyee = new Employee("Dolores", "employee", "du@hogwarts.edu", 1);
+            const emplooyee = new Employee("Dolores Umbridge", "employee", "du@hogwarts.edu", 1);
 
             //Assert
-            expect(employee.name).toEqual("Dolores");
+            expect(employee.name).toEqual("Dolores Umbridge");
             expect(employee.title).toEqual("employee");
             expect(employee.email).toEqual("du@hogwarts.edu");
             expect(employee.id).toEqual(1);
