@@ -22,28 +22,28 @@ describe("Employee class", () =>{
         it("should throw an error if 'name' is not a string", () => {
             //Act
             const cb = () => new Employee(4, "employee", "du@hogwarts.edu", 1);
-            const err = new Error("Expected 'name' to be a non-empty string")
+            const err = new Error("Expected 'name' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'title' is not a string", () => {
             //Act
             const cb = () => new Employee("Dolores", 5, "du@hogwarts.edu", 1);
-            const err = new Error("Expected 'title' to be a non-empty string")
+            const err = new Error("Expected 'title' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'email' is not a string", () => {
             //Act
             const cb = () => new Employee("Dolores", "employee", 14, 1);
-            const err = new Error("Expected 'email' to be a non-empty string")
+            const err = new Error("Expected 'email' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'id' less than 0", () => {
             //Act
             const cb = () => new Employee("Dolores", "employee", "du@hogwarts.edu", -1);
-            const err = new Error("Expected 'id' to be a non-negative number")
+            const err = new Error("Expected 'id' to be a non-negative number");
             //Assert
             expect(cb).toThrowError(err);
         });

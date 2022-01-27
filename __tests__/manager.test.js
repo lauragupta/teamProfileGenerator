@@ -22,35 +22,35 @@ describe("Manager class", () =>{
         it("should throw an error if 'name' is not a string", () => {
             //Act
             const cb = () => new Manager(12, "Manager", "ab@Hogwarts.edu", 2, 300);
-            const err = new Error("Expected 'name' to be a non-empty string")
+            const err = new Error("Expected 'name' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'title' is not a string", () => {
             //Act
             const cb = () => new Manager("Albus Dumbledore", 44, "ab@Hogwarts.edu", 2, 300);
-            const err = new Error("Expected 'title' to be a non-empty string")
+            const err = new Error("Expected 'title' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'email' is not a string", () => {
             //Act
             const cb = () => new Manager("Albus Dumbledore", "Manager", 33, 2, 300);
-            const err = new Error("Expected 'email' to be a non-empty string")
+            const err = new Error("Expected 'email' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'id' less than 0", () => {
             //Act
             const cb = () => new Manager("Albus Dumbledore", "Manager", "ab@Hogwarts.edu", -2, 300);
-            const err = new Error("Expected 'id' to be a non-negative number")
+            const err = new Error("Expected 'id' to be a non-negative number");
             //Assert
             expect(cb).toThrowError(err);
         });
         it("should throw an error if 'officeNumber' less than 0", () => {
             //Act
             const cb = () => new Manager("Albus Dumbledore", "Manager", "ab@Hogwarts.edu", 2, -300);
-            const err = new Error("Expected 'officeNumber' to be a non-negative number")
+            const err = new Error("Expected 'officeNumber' to be a non-negative number");
             //Assert
             expect(cb).toThrowError(err);
         });
