@@ -103,6 +103,9 @@ function renderEngineerCard(name, email, id, githubUsername) {
 function renderInternCard(name, email, id, school) {
     return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>School: ${school}</p></div></div></div>`
 } 
+
+//set variable to string of html
+const cards = output.toString();
 //Starting manager question function for inquirer
 function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
@@ -142,3 +145,32 @@ function askAddExit() {
 
 //Calling the manager questions
 askManagerQuestions();
+
+var body = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>Team Profile Generator</title>
+</head>
+<body>
+    <header class="container">
+        <div class="has-background-danger has-text-white-bis is-10">
+              <div class="container">
+                  <div class="columns">
+                      <div class="column title is-centered">My Team</div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </header>
+    <br>
+    <main class="container">
+        <div class="columns" id="cards">
+            ${cards}
+        </div>
+    </main>
+</body>
+</html>`
