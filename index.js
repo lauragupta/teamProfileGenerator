@@ -35,3 +35,35 @@ const addOrExitQuestion = [
         
     },
 ];
+//Engineer questions
+const engineerQuestions = [
+    {
+        name: 'engineerName',
+        message: "What is the engineer's name",
+        type: 'input',
+    },  
+    {
+        name: 'engineerEmail',
+        message: "What is the engineer's email address",
+        type: 'input',
+        when(response) {
+            return response.addOrExit === 'Add an Engineer';
+        }
+    },
+    {
+        name: 'engineerId',
+        message: "What is the engineer's employee ID",
+        type: 'input',
+        when(response) {
+            return response.addOrExit === 'Add an Engineer';
+        }
+    },
+    {
+        name: 'engineerGitHub',
+        message: "What is the engineer's GitHub username?",
+        type: 'input',
+        when(response) {
+            return response.addOrExit === 'Add an Engineer';
+        }
+    }
+];
