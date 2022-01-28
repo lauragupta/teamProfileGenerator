@@ -67,3 +67,30 @@ const engineerQuestions = [
         }
     }
 ];
+
+//Intern questions
+
+const internQuestions = [
+    {
+        name: 'internName',
+        message: "What is the intern's name",
+        type: 'input',
+    },  
+    {
+        name: 'internEmail',
+        message: "What is the intern's email address",
+        type: 'input',
+
+    },
+    {
+        name: 'internId',
+        message: "What is the engineer's employee ID",
+        type: 'input',
+    },
+    {
+        name: 'internSchool',
+        message: "What is the intern's school?",
+        type: 'input',
+    },
+];
+    
