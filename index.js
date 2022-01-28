@@ -177,6 +177,6 @@ var body = `<!DOCTYPE html>
 </html>`
 
 //function to write file to the index.html file or to console an error if there is one
-fs.writeFile("index.html", body, (err) =>
-err ? console.error(err) : console.log('Success!')
-);
+// fs.writeFile("index.html", body, (err) =>
+// err ? console.error(err) : console.log('Success!')
+// );
