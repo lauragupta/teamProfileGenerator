@@ -101,11 +101,13 @@ function askAddExit() {
         if(response.addOrExit === 'Add an Engineer') {
             inquirer.prompt(engineerQuestions).then((response) => {
                 engineerOutput.push(response);
+                console.log(engineerOutput);
                 askAddExit();
             })
         } else if(response.addOrExit === 'Add an Intern') {
             inquirer.prompt(internQuestions).then((response) => {
                 internOutput.push(response);
+                console.log(internOutput);
                 askAddExit();
             })
         } else if(response.addOrExit === 'Exit to see my team') {
