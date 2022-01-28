@@ -25,3 +25,13 @@ const managerQuestions = [
         type: 'input',
     },  
 ];
+// Add or Exit directing question
+const addOrExitQuestion = [
+    {
+        name: 'addOrExit',
+        message: 'Would you like to add an intern, add an engineer, or exit to get your team list?',
+        type: 'list',
+        choices: ['Add an Engineer', 'Add an Intern', 'Exit to see my team']
+        
+    },
+];
