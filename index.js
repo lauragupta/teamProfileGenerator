@@ -106,6 +106,7 @@ function renderInternCard(name, email, id, school) {
 
 //set variable to string of html
 const cards = output.toString();
+
 //Starting manager question function for inquirer
 function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
@@ -137,7 +138,7 @@ function askAddExit() {
                 askAddExit();
             })
         } else if(response.addOrExit === 'Exit to see my team') {
-            console.log(output);
+            console.log();
             return(output);
         }
     });
@@ -174,3 +175,8 @@ var body = `<!DOCTYPE html>
     </main>
 </body>
 </html>`
+
+//function to write file to the index.html file or to console an error if there is one
+fs.writeFile("index.html", body, (err) =>
+err ? console.error(err) : console.log('Success!')
+);
