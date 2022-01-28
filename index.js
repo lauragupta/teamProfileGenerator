@@ -92,16 +92,16 @@ const internQuestions = [
 
 //function to make manager html card
 function renderManagerCard(name, email, id, office) {
-    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Manager</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>Office number: ${office}</p></div></div></div>`
+    return `<div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Manager</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>Office number: ${office}</p></div>`
 } 
     
 //function to make engineer html cards
 function renderEngineerCard(name, email, id, githubUsername) {
-    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Engineer</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p><a href="https://github.com/${githubUsername}" target="_blank">Check out my code on GitHub!</a></p></div></div></div>`
+    return `<div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Engineer</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p><a href="https://github.com/${githubUsername}" target="_blank">Check out my code on GitHub!</a></p></div>`
 } 
 //function to make intern html card
 function renderInternCard(name, email, id, school) {
-    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>School: ${school}</p></div></div></div>`
+    return `<div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>School: ${school}</p></div>`
 } 
 
 //set variable to string of html
