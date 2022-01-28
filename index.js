@@ -1,30 +1,32 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
 //Establish empty arrays for output answers
-const managerOutput = [];
-const engineerOutput = [];
-const internOutput = [];
+const output = [];
 
 //Manager Questions
 const managerQuestions = [
     {
-      name: 'managerName',
+      name: 'name',
       message: "What is your team manager's name?",
       type: 'input'
     },
     {
-        name: 'managerEmail',
+        name: 'email',
         message: "What is the team manager's email?",
         type: 'input'
     },
     {
-        name: 'managerId',
+        name: 'id',
         message: "What is the team manager's employee ID" ,
         type: 'input'
     },
     {
-        name: 'managerOffice',
+        name: 'office',
         message: "What is the team manager's office number?",
         type: 'input',
     },  
@@ -42,22 +44,22 @@ const addOrExitQuestion = [
 //Engineer questions
 const engineerQuestions = [
     {
-        name: 'engineerName',
+        name: 'name',
         message: "What is the engineer's name",
         type: 'input',
     },  
     {
-        name: 'engineerEmail',
+        name: 'email',
         message: "What is the engineer's email address",
         type: 'input',
     },
     {
-        name: 'engineerId',
+        name: 'id',
         message: "What is the engineer's employee ID",
         type: 'input',
     },
     {
-        name: 'engineerGitHub',
+        name: 'githubUsername',
         message: "What is the engineer's GitHub username?",
         type: 'input',
     }
@@ -67,51 +69,56 @@ const engineerQuestions = [
 
 const internQuestions = [
     {
-        name: 'internName',
+        name: 'name',
         message: "What is the intern's name",
         type: 'input',
     },  
     {
-        name: 'internEmail',
+        name: 'email',
         message: "What is the intern's email address",
         type: 'input',
     },
     {
-        name: 'internId',
+        name: 'id',
         message: "What is the engineer's employee ID",
         type: 'input',
     },
     {
-        name: 'internSchool',
+        name: 'school',
         message: "What is the intern's school?",
         type: 'input',
     },
 ];
     
-//Directing question function for inquirer
+//Starting manager question function for inquirer
 function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
-        console.log(response);
-        managerOutput.push(response);
+        const manager = new Manager(response.name, response.email, response.id, response.officeNumber)
+        output.push(manager);
+        console.log(output);
         askAddExit();
     });
 }
+
+//function to add engineers and interns and to 
 function askAddExit() {
     inquirer.prompt(addOrExitQuestion).then((response) => {
         if(response.addOrExit === 'Add an Engineer') {
             inquirer.prompt(engineerQuestions).then((response) => {
-                engineerOutput.push(response);
-                console.log(engineerOutput);
+                const engineer = new Engineer(response.name, response.email, response.id, response.githubUsername)
+                output.push(engineer);
+                console.log(output);
                 askAddExit();
             })
         } else if(response.addOrExit === 'Add an Intern') {
             inquirer.prompt(internQuestions).then((response) => {
-                internOutput.push(response);
-                console.log(internOutput);
+                const intern = new Intern(response.name, response.email, response.id, response.school)
+                output.push(intern);
+                console.log(output);
                 askAddExit();
             })
         } else if(response.addOrExit === 'Exit to see my team') {
-            console.log(response);
+            console.log(output);
             return;
         }
     });
