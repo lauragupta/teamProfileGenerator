@@ -93,7 +93,7 @@ const internQuestions = [
 //Starting manager question function for inquirer
 function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
-        const manager = new Manager(response.name, response.email, response.id, response.officeNumber)
+        const manager = new Manager(response.name, response.email, response.id, response.office)
         output.push(manager);
         console.log(output);
         askAddExit();
@@ -119,7 +119,7 @@ function askAddExit() {
             })
         } else if(response.addOrExit === 'Exit to see my team') {
             console.log(output);
-            return;
+            return(output);
         }
     });
 }
