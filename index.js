@@ -92,16 +92,16 @@ const internQuestions = [
 
 //function to make manager html card
 function renderManagerCard(name, email, id, office) {
-    return `<h1>Name: ${name}</h1><h2>Manager</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>Office number: ${office}</p>`
+    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Manager</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>Office number: ${office}</p></div></div></div>`
 } 
     
 //function to make engineer html cards
 function renderEngineerCard(name, email, id, githubUsername) {
-    return `<h1>Name: ${name}</h1><h2>Engineer</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p><a href="https://github.com/${githubUsername}" target="_blank">Check out my code on GitHub!</a></p>`
+    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Engineer</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p><a href="https://github.com/${githubUsername}" target="_blank">Check out my code on GitHub!</a></p></div></div></div>`
 } 
 //function to make intern html card
 function renderInternCard(name, email, id, school) {
-    return `<h1>Name: ${name}</h1><h2>Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>School: ${school}</p>`
+    return `<div class="container"><div class="columns"><div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}"></a></p><p>School: ${school}</p></div></div></div>`
 } 
 //Starting manager question function for inquirer
 function askManagerQuestions() {
@@ -128,14 +128,14 @@ function askAddExit() {
         } else if(response.addOrExit === 'Add an Intern') {
             inquirer.prompt(internQuestions).then((response) => {
                 const intern = new Intern(response.name, response.email, response.id, response.school);
-                const htmlCard = renderInternCard(inter.name, intern.email, intern.id, intern.school);
+                const htmlCard = renderInternCard(intern.name, intern.email, intern.id, intern.school);
                 output.push(htmlCard);
                 console.log(htmlCard);
                 askAddExit();
             })
         } else if(response.addOrExit === 'Exit to see my team') {
-            console.log(htmlCard);
-            return(htmlCard);
+            console.log(output);
+            return(output);
         }
     });
 }
