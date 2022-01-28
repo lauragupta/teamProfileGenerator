@@ -94,3 +94,26 @@ const internQuestions = [
     },
 ];
     
+//Directing question function for inquirer
+function askQuestions() {
+    inquirer.prompt(managerQuestions).then((response) => {
+    console.log(response);
+    output.push(response);
+        inquirer.prompt(addOrExitQuestion).then((response) => {
+            if(response.addOrExit === 'Add an Engineer') {
+                inquirer.prompt(engineerQuestions).then((response) => {
+
+                })
+            } else if(response.addOrExit === 'Add an Intern') {
+                inquirer.prompt(internQuestions).then((response) => {
+                    
+                })
+            } else if(response.addOrExit === 'Exit to see my team') {
+                return
+            }
+        });
+    });
+}
+
+//Calling the inquirer questions
+askQuestions();
