@@ -1,7 +1,11 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const output = [];
+//Establish empty arrays for output answers
+const managerOutput = [];
+const engineerOutput = [];
+const internOutput = [];
+
 //Manager Questions
 const managerQuestions = [
     {
@@ -46,25 +50,16 @@ const engineerQuestions = [
         name: 'engineerEmail',
         message: "What is the engineer's email address",
         type: 'input',
-        when(response) {
-            return response.addOrExit === 'Add an Engineer';
-        }
     },
     {
         name: 'engineerId',
         message: "What is the engineer's employee ID",
         type: 'input',
-        when(response) {
-            return response.addOrExit === 'Add an Engineer';
-        }
     },
     {
         name: 'engineerGitHub',
         message: "What is the engineer's GitHub username?",
         type: 'input',
-        when(response) {
-            return response.addOrExit === 'Add an Engineer';
-        }
     }
 ];
 
@@ -80,7 +75,6 @@ const internQuestions = [
         name: 'internEmail',
         message: "What is the intern's email address",
         type: 'input',
-
     },
     {
         name: 'internId',
@@ -95,25 +89,31 @@ const internQuestions = [
 ];
     
 //Directing question function for inquirer
-function askQuestions() {
+function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
-    console.log(response);
-    output.push(response);
-        inquirer.prompt(addOrExitQuestion).then((response) => {
-            if(response.addOrExit === 'Add an Engineer') {
-                inquirer.prompt(engineerQuestions).then((response) => {
-
-                })
-            } else if(response.addOrExit === 'Add an Intern') {
-                inquirer.prompt(internQuestions).then((response) => {
-                    
-                })
-            } else if(response.addOrExit === 'Exit to see my team') {
-                return
-            }
-        });
+        console.log(response);
+        managerOutput.push(response);
+        askAddExit();
+    });
+}
+function askAddExit() {
+    inquirer.prompt(addOrExitQuestion).then((response) => {
+        if(response.addOrExit === 'Add an Engineer') {
+            inquirer.prompt(engineerQuestions).then((response) => {
+                engineerOutput.push(response);
+                askAddExit();
+            })
+        } else if(response.addOrExit === 'Add an Intern') {
+            inquirer.prompt(internQuestions).then((response) => {
+                internOutput.push(response);
+                askAddExit();
+            })
+        } else if(response.addOrExit === 'Exit to see my team') {
+            console.log(response);
+            return;
+        }
     });
 }
 
-//Calling the inquirer questions
-askQuestions();
+//Calling the manager questions
+askManagerQuestions();
