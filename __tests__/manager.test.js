@@ -9,7 +9,7 @@ describe("Manager class", () =>{
             expect(manager.name).toEqual("Albus Dumbledore");
             expect(manager.email).toEqual("ad@hogwarts.edu");
             expect(manager.id).toEqual(2);
-            expect(manager.officeNumber).toEqual(300);
+            expect(manager.office).toEqual(300);
         });
         it("should throw an error if there are no paramaters entered", () => {
             //Act

@@ -40,29 +40,28 @@ describe("Employee class", () =>{
             expect(cb).toThrowError(err);
         });
     });
-    describe("getName", () => {
-        it("should add 'name' to ____", () => {
-         //Act
+    // describe("getName", () => {
+    //     it("should add 'name' to ____", () => {
+    //      //Act
 
-         //Assert
-         expect();
-        });
-    });
-    describe("getEmail", () => {
-        it("should add 'email' to ____ ", () => {
-         //Act
+    //      //Assert
+    //      expect();
+    //     });
+    // });
+    // describe("getEmail", () => {
+    //     it("should add 'email' to ____ ", () => {
+    //      //Act
 
-         //Assert
-         expect();
-        })
-    })
-    describe("getRole", () => {
-        it("should add 'role' to ____"), () => {
-        //Act
+    //      //Assert
+    //      expect();
+    //     })
+    // })
+    // describe("getRole", () => {
+    //     it("should add 'role' to ____"), () => {
+    //     //Act
 
-        //Assert
-        expect();
-        }
-    });
-    
+    //     //Assert
+    //     expect();
+    //     }
+    // });
 });
