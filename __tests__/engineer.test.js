@@ -7,7 +7,7 @@ describe("Engineer class", () =>{
             const engineer = new Engineer("Severus Snape", "ss@Hogwarts.edu", 3, "severussnape");
             //Assert
             expect(engineer.name).toEqual("Severus Snape");
-            expect(engineer.email).toEqual("ss@hogwarts.edu");
+            expect(engineer.email).toEqual("ss@Hogwarts.edu");
             expect(engineer.id).toEqual(3);
             expect(engineer.githubUsername).toEqual("severussnape");
         });

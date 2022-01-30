@@ -7,7 +7,7 @@ describe("Manager class", () =>{
             const manager = new Manager("Albus Dumbledore", "ad@Hogwarts.edu", 2, 300);
             //Assert
             expect(manager.name).toEqual("Albus Dumbledore");
-            expect(manager.email).toEqual("ad@hogwarts.edu");
+            expect(manager.email).toEqual("ad@Hogwarts.edu");
             expect(manager.id).toEqual(2);
             expect(manager.office).toEqual(300);
         });
@@ -39,10 +39,10 @@ describe("Manager class", () =>{
             //Assert
             expect(cb).toThrowError(err);
         });
-        it("should throw an error if 'officeNumber' less than 0", () => {
+        it("should throw an error if 'office' less than 0", () => {
             //Act
             const cb = () => new Manager("Albus Dumbledore", "ad@Hogwarts.edu", 2, -300);
-            const err = new Error("Expected 'officeNumber' to be a non-negative number");
+            const err = new Error("Expected 'office' to be a non-negative number");
             //Assert
             expect(cb).toThrowError(err);
         });

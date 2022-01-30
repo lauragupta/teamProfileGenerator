@@ -7,7 +7,7 @@ describe("Intern class", () =>{
             const intern = new Intern("Harry Potter", "hp@Hogwarts.edu", 4, "Hogwarts");
             //Assert
             expect(intern.name).toEqual("Harry Potter");
-            expect(intern.email).toEqual("hp@hogwarts.edu");
+            expect(intern.email).toEqual("hp@Hogwarts.edu");
             expect(intern.id).toEqual(4);
             expect(intern.school).toEqual("Hogwarts");
         });

@@ -4,11 +4,11 @@ describe("Employee class", () =>{
     describe("Initialization", () => {
         it("should create an object with a name, email, and id if provided valid arguments", () =>{
             //Act
-            const emplooyee = new Employee("Dolores Umbridge", "du@hogwarts.edu", 1);
+            const emplooyee = new Employee("Dolores Umbridge", "du@Hogwarts.edu", 1);
 
             //Assert
             expect(employee.name).toEqual("Dolores Umbridge");
-            expect(employee.email).toEqual("du@hogwarts.edu");
+            expect(employee.email).toEqual("du@Hogwarts.edu");
             expect(employee.id).toEqual(1);
         });
         it("should throw an error if there are no paramaters entered", () => {
@@ -20,7 +20,7 @@ describe("Employee class", () =>{
         });
         it("should throw an error if 'name' is not a string", () => {
             //Act
-            const cb = () => new Employee(4, "du@hogwarts.edu", 1);
+            const cb = () => new Employee(4, "du@Hogwarts.edu", 1);
             const err = new Error("Expected 'name' to be a non-empty string");
             //Assert
             expect(cb).toThrowError(err);
@@ -34,7 +34,7 @@ describe("Employee class", () =>{
         });
         it("should throw an error if 'id' less than 0", () => {
             //Act
-            const cb = () => new Employee("Dolores", "du@hogwarts.edu", -1);
+            const cb = () => new Employee("Dolores", "du@Hogwarts.edu", -1);
             const err = new Error("Expected 'id' to be a non-negative number");
             //Assert
             expect(cb).toThrowError(err);
