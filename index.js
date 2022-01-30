@@ -104,9 +104,6 @@ function renderInternCard(name, email, id, school) {
     return `<div class="column"><h2 class="is-size-2 has-background-link has-text-light">Name: ${name}</h2><h3 class="is-size-3 has-background-link has-text-light">Intern</h2><p>ID: ${id}</p><p>Email: <a href="mailto:${email}">${email}</a></p><p>School: ${school}</p></div>`
 } 
 
-//set variable to string of html
-const cards = output.toString();
-
 //Starting manager question function for inquirer
 function askManagerQuestions() {
     inquirer.prompt(managerQuestions).then((response) => {
@@ -138,8 +135,9 @@ function askAddExit() {
                 askAddExit();
             })
         } else if(response.addOrExit === 'Exit to see my team') {
-            console.log();
-            return(output);
+            console.log(output);
+            const teamHTML = output.join();
+            completeHTML(teamHTML);
         }
     });
 }
@@ -147,7 +145,11 @@ function askAddExit() {
 //Calling the manager questions
 askManagerQuestions();
 
-var body = `<!DOCTYPE html>
+
+//function to write file to the index.html file or to console an error if there is one
+function completeHTML(teamHTML) {
+    
+    var body = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -159,24 +161,23 @@ var body = `<!DOCTYPE html>
 <body>
     <header class="container">
         <div class="has-background-danger has-text-white-bis is-10">
-              <div class="container">
-                  <div class="columns">
-                      <div class="column title is-centered">My Team</div>
-                  </div>
-              </div>
+                <div class="container">
+                    <div class="columns">
+                        <div class="column title is-centered">My Team</div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
     <br>
     <main class="container">
         <div class="columns" id="cards">
-            ${cards}
+            ${teamHTML}
         </div>
     </main>
 </body>
-</html>`
-
-//function to write file to the index.html file or to console an error if there is one
-// fs.writeFile("index.html", body, (err) =>
-// err ? console.error(err) : console.log('Success!')
-// );
+</html>`;
+    fs.writeFile("index.html", body, (err) => {
+        err ? console.error(err) : console.log('Success!')
+    });
+}
