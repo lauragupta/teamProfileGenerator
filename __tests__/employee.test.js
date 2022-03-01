@@ -7,7 +7,7 @@ describe("Employee class", () =>{
             const emplooyee = new Employee("Dolores Umbridge", "du@Hogwarts.edu", 1);
 
             //Assert
-            expect(employee.name).toEqual("Dolores Umbridge");
+            expect(employee.getName()).toEqual("Dolores Umbridge");
             expect(employee.email).toEqual("du@Hogwarts.edu");
             expect(employee.id).toEqual(1);
         });
